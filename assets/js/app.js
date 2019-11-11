@@ -1,5 +1,45 @@
 // GLOBALS
-allPlayers = _.filter(playersData, function (f) { return f['Roster Position'] !== 'CPT'; });
+
+let selectedGameType = false;
+let gameTypes = {
+
+	college: {
+		roster: {
+	 		QB: [{}],
+			RB: [{}, {}],
+			WR: [{}, {}, {}],
+			FX: [{}],
+			SF: [{}]
+	 	},
+	 	slates: collegeSlates,
+	 	needToFilterPlayers: false
+
+	},
+	pro: {
+		roster: {
+	 		QB: [{}],
+			RB: [{}, {}],
+			WR: [{}, {}, {}],
+			TE: [{}],
+			FX: [{}],
+			DEF: [{}]
+	 	},
+	 	//slates: proSlates,
+	 	needToFilterPlayers: false
+
+	},
+	showdown: {
+		roster: {
+	 		CPT: [{}],
+			FX: [{}, {}, {}, {}, {}]
+	 	},
+	 	//slates: showdownSlates,
+	 	needToFilterPlayers: true
+	}
+};
+
+//let allPlayers = playersData;
+//allPlayers = _.filter(playersData, function (f) { return f['Roster Position'] !== 'CPT'; });
 
 
 selectedPlayers = []
@@ -24,12 +64,11 @@ slider = null
 
 
 // INITIALIZE
-printSortedPlayers(allPlayers)
-createLineups(numberOfLineups)
-printLineups(lineups)
-printTeamNames()
+//printSortedPlayers(allPlayers)
+//createLineups(numberOfLineups)
+//printLineups(lineups)
+//printTeamNames()
 
-console.log(lineups)
 
 
 

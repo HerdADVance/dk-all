@@ -4,6 +4,8 @@ function createLineups(n){
 		lineups.push(createLineup())
 		count ++
 	}
+
+	console.log(lineups);
 }
 
 function createLineup(){
@@ -12,14 +14,8 @@ function createLineup(){
 
 	return{
 		id: newLineupId,
-	 	roster: {
-	 		QB: [{}],
-			RB: [{}, {}],
-			WR: [{}, {}, {}],
-			FX: [{}],
-			SF: [{}]
-	 	}
-	}
+	 	roster: gameTypes[selectedGameType].roster 	
+	 }
 }
 
 function printLineups(arr){

@@ -1,5 +1,17 @@
 // CLICK EVENTS
 
+$('.gametype-select button').click(function(){
+	selectedGameType = $(this).attr('data-gametype');
+	$('.gametype-select').fadeOut();
+	$('.overlay').fadeOut();
+	
+	createLineups(numberOfLineups);
+	printLineups(lineups);
+
+	console.log(gameTypes[selectedGameType].slates);
+
+});
+
 $('.prepare-csv').click(function(){
 	let output = 'QB,RB,RB,WR,WR,WR,FLEX,S-FLEX\n'
 
