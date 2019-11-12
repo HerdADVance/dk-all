@@ -38,7 +38,7 @@ let gameTypes = {
 	}
 };
 
-//let allPlayers = playersData;
+allPlayers = [];
 //allPlayers = _.filter(playersData, function (f) { return f['Roster Position'] !== 'CPT'; });
 
 

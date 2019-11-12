@@ -2,15 +2,19 @@
 
 $('.gametype-select button').click(function(){
 	selectedGameType = $(this).attr('data-gametype');
-	$('.gametype-select').fadeOut();
+	showSlates();
+});
+
+$('.slate-select').delegate("button", "click", function(){
+	$('.initial-select').fadeOut();
 	$('.overlay').fadeOut();
-	
+	allPlayers = gameTypes[selectedGameType].slates[1].players;
+	printSortedPlayers(allPlayers);
 	createLineups(numberOfLineups);
 	printLineups(lineups);
-
-	console.log(gameTypes[selectedGameType].slates);
-
+	printTeamNames();
 });
+
 
 $('.prepare-csv').click(function(){
 	let output = 'QB,RB,RB,WR,WR,WR,FLEX,S-FLEX\n'

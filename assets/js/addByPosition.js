@@ -10,6 +10,8 @@ function searchLineupsToRemove(pos, num){
 
 function addPlayer(pos, numLineups, numSkip){
 
+	console.log(numLineups);
+
 	var addedTo = [] // Lineup Id's that fit our criteria. We'll use this at the end of this function
 
 	let i = 0

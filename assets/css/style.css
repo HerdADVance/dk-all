@@ -63,7 +63,7 @@ button{
   width: 100%;
   z-index: 2;
 }
-.gametype-select{
+.initial-select{
   background: white;
   left: 15%;
   padding: 40px;
@@ -72,12 +72,15 @@ button{
   width: 70%;
   z-index: 3;
 }
-.gametype-select h1{
+.slate-select{
+  display: none;
+}
+.initial-select h1{
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.gametype-select button{
+.initial-select button{
   background: #FF6C00;
   cursor: pointer;
   float: left;
@@ -85,7 +88,7 @@ button{
   padding: 15px;
   width: 33%;
 }
-.gametype-select button:hover{
+.initial-select button:hover{
   background: #9AE200;
 }
 
