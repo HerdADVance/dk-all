@@ -4,35 +4,35 @@ let selectedGameType = false;
 let gameTypes = {
 
 	college: {
-		roster: {
-	 		QB: [{}],
-			RB: [{}, {}],
-			WR: [{}, {}, {}],
-			FX: [{}],
-			SF: [{}]
-	 	},
+		roster: [
+	 		['QB', 1],
+			['RB', 2],
+			['WR', 3],
+			['FX', 1],
+			['SF', 1]
+	 	],
 	 	slates: collegeSlates,
 	 	needToFilterPlayers: false
 
 	},
 	pro: {
-		roster: {
-	 		QB: [{}],
-			RB: [{}, {}],
-			WR: [{}, {}, {}],
-			TE: [{}],
-			FX: [{}],
-			DEF: [{}]
-	 	},
-	 	//slates: proSlates,
+		roster: [
+	 		['QB', 1],
+			['RB', 2],
+			['WR', 3],
+			['TE', 1],
+			['FX', 1],
+			['DEF', 1]
+	 	],
+	 	slates: proSlates,
 	 	needToFilterPlayers: false
 
 	},
 	showdown: {
-		roster: {
-	 		CPT: [{}],
-			FX: [{}, {}, {}, {}, {}]
-	 	},
+		roster: [
+	 		['CPT', 1],
+			['FX', 6]
+	 	],
 	 	//slates: showdownSlates,
 	 	needToFilterPlayers: true
 	}

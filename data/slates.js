@@ -9,3 +9,16 @@ let collegeSlates = [
 		players: collegeMainPlayers	
 	}
 ];
+
+let proSlates = [
+
+	{
+		name: "11/17 Main",
+		players: proMainPlayers
+	},
+	{
+		name: "11/17 Early Only",
+		players: []
+	}
+
+];

@@ -12,10 +12,25 @@ function createLineup(){
 	
 	newLineupId ++
 
-	return{
+	let lineup = {
 		id: newLineupId,
-	 	roster: gameTypes[selectedGameType].roster 	
-	 }
+		roster: buildRoster()
+	}
+
+	return lineup
+
+}
+
+function buildRoster(){
+	let roster = {}
+	_.forEach(gameTypes[selectedGameType].roster, function(pos){
+		roster[pos[0]] = []
+		for(let i=0; i < pos[1]; i++){
+			roster[pos[0]].push({})
+		}
+	})
+
+	return roster
 }
 
 function printLineups(arr){

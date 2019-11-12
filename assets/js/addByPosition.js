@@ -10,15 +10,15 @@ function searchLineupsToRemove(pos, num){
 
 function addPlayer(pos, numLineups, numSkip){
 
-	console.log(numLineups);
-
 	var addedTo = [] // Lineup Id's that fit our criteria. We'll use this at the end of this function
 
 	let i = 0
-	if(numSkip) i = numSkip - 1
+	if(numSkip) i = numSkip - 1;
 
 	// Looping through global lineups
 	for(i; i < lineups.length; i++){
+
+		console.log(pos)
 
 		let alreadyInLineup = isClickedPlayerInLineup(lineups[i].id)
 		if(alreadyInLineup) continue
@@ -39,10 +39,13 @@ function addPlayer(pos, numLineups, numSkip){
 				break
 		}
 
+		console.log(added)
+
 		if(added) addedTo.push(lineups[i].id)
 		else continue
 
 		// Stop because we've reached the number to add
+		console.log(addedTo.length, numLineups)
 		if(addedTo.length == numLineups) break
 
 	}
@@ -142,6 +145,7 @@ function addPlayerToHighlightedLineups(){
 function checkQB(lineup){
 	if(!lineup.roster['QB'][0].ID){
 		lineup.roster['QB'][0] = clickedPlayer
+		console.log(clickedPlayer);
 		return true
 	} else if(!lineup.roster['SF'][0].ID){
 		lineup.roster['SF'][0] = clickedPlayer
@@ -191,6 +195,8 @@ function checkWR(lineup){
 
 
 function isClickedPlayerInLineup(lid){
+	console.log(clickedPlayerLineups)
+	console.log(lid)
 	return _.includes(clickedPlayerLineups, lid)
 }
 
