@@ -1,4 +1,4 @@
-function printTeamNames(){
+function sortTeams(){
 	
 	let games = [];
 
@@ -22,11 +22,8 @@ function printTeamNames(){
 	games = _.uniqBy(games, 'away');
 	console.log(games);
 
-	// let info = allPlayers[0]['Game Info']
-	// let awayTeam = info.substr(0, info.indexOf('@'));
-	// info = info.substring(info.indexOf("@") + 1);
-	// let homeTeam = info.substr(0, info.indexOf(' '));
+}
 
-	// $('.away-team').text(awayTeam)
-	// $('.home-team').text(homeTeam)
+function printTeams(){
+	// printin here
 }
