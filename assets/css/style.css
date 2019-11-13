@@ -165,6 +165,7 @@ button{
 }
 .sort-games li:last-child{
   border-right: 1px solid #CCC;
+  width: 33.3333%;
 }
 
 
