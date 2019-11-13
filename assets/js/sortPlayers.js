@@ -73,7 +73,7 @@ function sortPlayersByPosition(players, pos){
 		case 'ALL':
 			break
 		
-		case 'FLEX':
+		case 'FX':
 			matching = players.filter(e => ['RB', 'WR', 'TE'].includes(e.Position))
 			break
 		
