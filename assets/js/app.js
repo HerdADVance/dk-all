@@ -41,6 +41,7 @@ let gameTypes = {
 allPlayers = [];
 //allPlayers = _.filter(playersData, function (f) { return f['Roster Position'] !== 'CPT'; });
 
+games = []
 
 selectedPlayers = []
 

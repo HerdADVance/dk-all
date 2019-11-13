@@ -1,6 +1,6 @@
 function sortTeams(){
 	
-	let games = [];
+	let sortedGames = [];
 
 	_.forEach(allPlayers, function(player){
 		let game = {};
@@ -16,14 +16,24 @@ function sortTeams(){
 		info = info.slice(0, -2); 
 		game['time'] = info
 
-		games.push(game);
+		sortedGames.push(game);
 	});
 
-	games = _.uniqBy(games, 'away');
-	console.log(games);
+	games = _.uniqBy(sortedGames, 'away');
 
 }
 
-function printTeams(){
-	// printin here
+function printGames(){
+	
+	let output = '';
+
+	_.forEach(games, function(game){
+		output += '<li>' + game.away + '</li>';
+		output += '<li>' + game.home + '</li>';
+	})
+
+	output += '<li class="selected">ALL</li>';
+
+	$('.sort-games').html(output);
+
 }
