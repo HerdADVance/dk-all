@@ -22,7 +22,7 @@ let proSlates = [
 	},
 	{
 		name: "11/17 Early Only",
-		players: []
+		players: proEarlyPlayers
 	}
 
 ];

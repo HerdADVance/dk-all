@@ -27,7 +27,7 @@ function printPositions(){
 	let output = '';
 
 	_.forEach(gameTypes[selectedGameType].roster, function(pos){
-		output += '<li>' + pos[0] + '</li>';
+		if(pos[0] != 'SF') output += '<li>' + pos[0] + '</li>';
 	});
 
 	output += '<li class="selected">ALL</li>';
@@ -37,7 +37,8 @@ function printPositions(){
 }
 
 function showSlates(){
-	let output = '';
+	
+	let output = '<p>Number of Lineups: <input id="select-number-lineups" type="number" min="1" max="150" placeholder="20"></p>';
 	
 	_.forEach(gameTypes[selectedGameType].slates, function(slate){
 		output += '<button>' + slate.name + '</button>';
@@ -69,6 +70,7 @@ function sortTeams(){
 	});
 
 	games = _.uniqBy(sortedGames, 'away');
+	games = _.orderBy(games, ['time'],['asc'])
 
 }
 

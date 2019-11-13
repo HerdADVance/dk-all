@@ -22,22 +22,28 @@
 		<h1>Select Slate</h1>
 	</div>
 
+	<div class="buttons">
+		<p><span>Sort by:</span> 
+
+		<!--button class="show-over-cap">Show Over Cap</button>
+		<button class="show-all">Show All</button-->
+
+		<button class="sort-high">Most Avg Rem. Salary</button>
+		<button class="sort-low">Least Avg Rem. Salary</button>
+		<button class="sort-id">Original</button>
+
+		</p>
+
+		<p class="csv-wrap"><button class="prepare-csv">Create Import File</button></p>
+		<form style="display: none;" id="create-csv" name="create-csv" action="create-csv.php" method="post"> 
+			<input type="hidden" id="csv-data" name="csv-data">
+		</form>
+	</div>
+
 
 	<div class="wrapper">
 
 		<div class="list">
-			
-			<button class="prepare-csv">Create Import File</button>
-			<form style="display: none;" id="create-csv" name="create-csv" action="create-csv.php" method="post"> 
-				<input type="hidden" id="csv-data" name="csv-data">
-			</form>
-
-			<button class="show-over-cap">Show Over Cap</button>
-			<button class="show-all">Show All</button><br/>
-
-			<button class="sort-high">Highest Avg Salary Remaining</button>
-			<button class="sort-low">Lowest Avg Salary Remaining</button>
-			<button class="sort-id">Sort to Original</button>
 			
 			<div>
 				<ul class="sort-players sort-positions clickable"></ul>
@@ -55,9 +61,6 @@
 
 		
 		<div class="lineups">
-			<!--label for="lineups-number">Number of Lineups:</label>
-			<input type="number" class="lineups-number" name="lineups-number" min="0" step="1" /-->
-			
 			<div class="lineups-wrap"></div>
 		</div>
 
@@ -72,6 +75,7 @@
 	<script src="/assets/js/lodash.js"></script>
 	<script src="/data/college-main-players.js"></script>
 	<script src="/data/college-night-players.js"></script>
+	<script src="/data/pro-early-players.js"></script>
 	<script src="/data/pro-main-players.js"></script>
 	<script src="/data/slates.js"></script>
 	<script src="/assets/js/events.js"></script>

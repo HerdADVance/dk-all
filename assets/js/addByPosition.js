@@ -18,8 +18,6 @@ function addPlayer(pos, numLineups, numSkip){
 	// Looping through global lineups
 	for(i; i < lineups.length; i++){
 
-		console.log(pos)
-
 		let alreadyInLineup = isClickedPlayerInLineup(lineups[i].id)
 		if(alreadyInLineup) continue
 
@@ -34,23 +32,24 @@ function addPlayer(pos, numLineups, numSkip){
 			case 'WR':
 				added = checkWR(lineups[i])
 				break
+			case 'TE':
+				added = checkTE(lineups[i])
+				break
+			case 'DST':
+				added = checkDST(lineups[i])
+				break
 			default:
 				console.log("ERROR")
 				break
 		}
 
-		console.log(added)
-
 		if(added) addedTo.push(lineups[i].id)
 		else continue
 
 		// Stop because we've reached the number to add
-		console.log(addedTo.length, numLineups)
 		if(addedTo.length == numLineups) break
 
 	}
-
-	console.log(addedTo)
 
 	addLineupsToPlayer(addedTo)
 
@@ -58,7 +57,6 @@ function addPlayer(pos, numLineups, numSkip){
 
 function addLineupsToPlayer(toAdd){
 
-	console.log("TO ADD " + toAdd)
 	let lineupsIn = clickedPlayerLineups
 	
 	if(lineupsIn.length == 0){
@@ -85,35 +83,6 @@ function addLineupsToPlayer(toAdd){
 		console.log(clickedPlayerLineups)
 	}
 }
-
-function removeCaptain(pos, numLineups){
-
-	var removeFrom = []
-
-	// Looping through global lineups
-	for(var i=0; i < lineups.length; i++){
-
-		// Checking to see if player is captain in this lineup
-		let isCaptain = checkLineupForCaptain(lineups[i])
-		
-		// Player is the captain so remove them and add to counter
-		if(isCaptain){
-			lineups[i].roster['CAP'][0] = {}
-			removeFrom.push(lineups[i].id)
-		}
-
-		// Stop because we've reached the number to remove
-		if(removeFrom.length == Math.abs(numLineups)) break
-
-	}
-
-	//removeLineupsFromPlayer(clickedPlayer.ID, removeFrom)
-
-}
-
-
-
-
 
 function addPlayerToHighlightedLineups(){
 
@@ -145,13 +114,15 @@ function addPlayerToHighlightedLineups(){
 function checkQB(lineup){
 	if(!lineup.roster['QB'][0].ID){
 		lineup.roster['QB'][0] = clickedPlayer
-		console.log(clickedPlayer);
-		return true
-	} else if(!lineup.roster['SF'][0].ID){
-		lineup.roster['SF'][0] = clickedPlayer
 		return true
 	}
 
+	if(selectedGameType == 'college'){
+		if(!lineup.roster['SF'][0].ID){
+			lineup.roster['SF'][0] = clickedPlayer
+			return true
+		}
+	}
 	return false
 }
 
@@ -166,9 +137,12 @@ function checkRB(lineup){
 		lineup.roster['FX'][0] = clickedPlayer
 		return true
 	}
-	if(!lineup.roster['SF'][0].ID){
-		lineup.roster['SF'][0] = clickedPlayer
-		return true
+
+	if(selectedGameType == 'college'){
+		if(!lineup.roster['SF'][0].ID){
+			lineup.roster['SF'][0] = clickedPlayer
+			return true
+		}
 	}
 
 	return false
@@ -185,18 +159,41 @@ function checkWR(lineup){
 		lineup.roster['FX'][0] = clickedPlayer
 		return true
 	}
-	if(!lineup.roster['SF'][0].ID){
-		lineup.roster['SF'][0] = clickedPlayer
+
+	if(selectedGameType == 'college'){
+		if(!lineup.roster['SF'][0].ID){
+			lineup.roster['SF'][0] = clickedPlayer
+			return true
+		}
+	}
+
+	return false
+}
+
+function checkTE(lineup){
+	if(!lineup.roster['TE'][0].ID){
+		lineup.roster['TE'][0] = clickedPlayer
+		return true
+	}
+	if(!lineup.roster['FX'][0].ID){
+		lineup.roster['FX'][0] = clickedPlayer
 		return true
 	}
 
 	return false
 }
 
+function checkDST(lineup){
+	if(!lineup.roster['DST'][0].ID){
+		lineup.roster['DST'][0] = clickedPlayer
+		return true
+	}
+	return false
+}
+
+
 
 function isClickedPlayerInLineup(lid){
-	console.log(clickedPlayerLineups)
-	console.log(lid)
 	return _.includes(clickedPlayerLineups, lid)
 }
 
@@ -206,18 +203,4 @@ function checkPlayerLineups(pid){
 		else return []
 }
 
-function checkLineupForCaptain(lineup){
-	if(lineup.roster['CAP'][0].ID == clickedPlayer.ID) return true
-	else return false
-}
-
-function checkLineupForRegularPlayer(lineup){
-
-	// Check the main position
-	for(var i = 0; i < 5; i++){
-		if(lineup.roster['REG'][i].ID == clickedPlayer.ID) return true
-	}
-
-	return false
-}
 

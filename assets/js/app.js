@@ -12,7 +12,9 @@ let gameTypes = {
 			['SF', 1]
 	 	],
 	 	slates: collegeSlates,
-	 	needToFilterPlayers: false
+	 	spots: 8,
+	 	needToFilterPlayers: false,
+	 	csvHeader: 'QB,RB,RB,WR,WR,WR,FLEX,S-FLEX\n'
 
 	},
 	pro: {
@@ -25,7 +27,9 @@ let gameTypes = {
 			['DST', 1]
 	 	],
 	 	slates: proSlates,
-	 	needToFilterPlayers: false
+	 	spots: 9,
+	 	needToFilterPlayers: false,
+	 	csvHeader: 'QB,RB,RB,WR,WR,WR,TE,FLEX,DST\n'
 
 	},
 	showdown: {
@@ -34,6 +38,7 @@ let gameTypes = {
 			['FX', 6]
 	 	],
 	 	//slates: showdownSlates,
+	 	spots: 6,
 	 	needToFilterPlayers: true
 	}
 };

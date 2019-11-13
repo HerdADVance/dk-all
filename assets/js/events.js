@@ -1,49 +1,29 @@
-// CLICK EVENTS
+// GAMETYPE AND SLATE SELECT TO INITIALIZE
+$('.gametype-select button').click(function(event){
+	if(!event.detail || event.detail == 1){ // prevents double clicks
+		selectedGameType = $(this).attr('data-gametype');
+		showSlates();
+	}
+});
+$('.slate-select').delegate("button", "click", function(event){
+	if(!event.detail || event.detail == 1){ // prevents double clicks
+		$('.initial-select').fadeOut();
+		$('.overlay').fadeOut();
 
-$('.gametype-select button').click(function(){
-	selectedGameType = $(this).attr('data-gametype');
-	showSlates();
+		let slateName = $(this).text();
+		let slate = _.find(gameTypes[selectedGameType].slates, function (f) { return f['name'] == slateName; });
+		
+		allPlayers = slate.players;
+
+		let chosenNumberLineups = $('#select-number-lineups').val();
+		if(chosenNumberLineups) numberOfLineups = chosenNumberLineups
+
+		initialize(numberOfLineups);
+	}
 });
 
-$('.slate-select').delegate("button", "click", function(){
-	$('.initial-select').fadeOut();
-	$('.overlay').fadeOut();
 
-	let slateName = $(this).text();
-	let slate = _.find(gameTypes[selectedGameType].slates, function (f) { return f['name'] == slateName; });
-	
-	allPlayers = slate.players;
-
-	initialize();
-});
-
-
-$('.prepare-csv').click(function(){
-	let output = 'QB,RB,RB,WR,WR,WR,FLEX,S-FLEX\n'
-
-	_.forEach(lineups, function(lineup){
-
-		for(var key in lineup.roster){
-			
-			let position = lineup.roster[key]
-
-			_.forEach(position, function(slot){
-				output += slot.ID + ','
-			})
-
-		}
-
-		output = output.substring(0, output.length - 1)
-		output += '\n'
-
-	})
-
-	$('#csv-data').val(output)
-
-	document.getElementById('create-csv').submit();
-})
-
-// Sort players based on game or position
+// SORTING PLAYERS BY CLICKING POSITIONS OR TEAMS
 $('.list').delegate('.sort-players li', 'click', function(){
 
 	// Change highlighted selection
@@ -65,7 +45,7 @@ $('.list').delegate('.sort-players li', 'click', function(){
 });
 
 
-// Showing player select bar when player clicked
+// CLICKING ON A PLAYER FROM PLAYER SELECT TABLE
 $(".players").delegate(".player", "click", function(){
 
 	$('.players tr').removeClass('clicked-player')
@@ -86,15 +66,15 @@ $(".players").delegate(".player", "click", function(){
 })
 
 
-// Adding player based on slider
+// CLICKING ADD/SUBTRACT FROM LINEUPS ON SLIDER BUTTON
 $(".players").delegate(".player-select-add", "click", function(){
 
-	let random = $('#random').val()
+	let random = $('#random').is(":checked");
 	let numberToChange = parseInt(($('.player-select-delta').text()))
 	let startFrom = parseInt($('#start-from').val());
 
 	// Shuffle the lineups if random is selected
-	if(random == 'yes') lineups = _.shuffle(lineups);
+	if(random) lineups = _.shuffle(lineups);
 
 	// Start from this lineup if selected
 	let numberToSkip = undefined
@@ -105,7 +85,7 @@ $(".players").delegate(".player-select-add", "click", function(){
 	else searchLineups(clickedPlayer.Position, numberToChange, numberToSkip)
 
 	// Reorder the lineups by their original ID's before printing. Otherwise keep sorted by salary/whatever
-	if(random == 'yes') lineups = _.orderBy(lineups, ['id'],['asc'])
+	if(random) lineups = _.orderBy(lineups, ['id'],['asc'])
 
 	printLineups(lineups)
 
@@ -114,7 +94,7 @@ $(".players").delegate(".player-select-add", "click", function(){
 })
 
 
-// Adding player to highlighted rows
+// CLICKING ON ADD PLAYER TO HIGHLIGHTED LINEUPS BUTTON
 $(".players").delegate(".player-select-add-highlighted", "click", function(){
 
 	addPlayerToHighlightedLineups()
@@ -134,7 +114,7 @@ $(".players").delegate(".player-select-add-highlighted", "click", function(){
 })
 
 
-// Clicking lineup rows
+// CLICKING ANY LINEUP ROW
 $(".lineups").delegate("td", "click", function(){
 	
 	var lineupId = parseInt($(this).parent().parent().parent().attr('id'))
@@ -213,6 +193,8 @@ $(".lineups").delegate("td", "click", function(){
 })
 
 
+
+// VARIOUS ACTION BUTTONS FOR SORTING LINEUPS
 $('.show-over-cap').click(function(){
 	$('.lineup').hide();
 	$('.lineup').each(function(){
@@ -238,3 +220,31 @@ $('.sort-id').click(function(){
 	sortLineupsById();
 	printLineups(lineups);
 });
+
+
+// SAVING IMPORT FILE
+$('.prepare-csv').click(function(){
+
+	let output = gameTypes[selectedGameType].csvHeader
+
+	_.forEach(lineups, function(lineup){
+
+		for(var key in lineup.roster){
+			
+			let position = lineup.roster[key]
+
+			_.forEach(position, function(slot){
+				output += slot.ID + ','
+			})
+
+		}
+
+		output = output.substring(0, output.length - 1)
+		output += '\n'
+
+	})
+
+	$('#csv-data').val(output)
+
+	document.getElementById('create-csv').submit();
+})

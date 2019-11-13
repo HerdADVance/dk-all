@@ -91,20 +91,54 @@ button{
 .initial-select button:hover{
   background: #9AE200;
 }
+.initial-select p{
+  padding-bottom: 20px;
+}
+.initial-select input{
+  border: 1px solid #CCC;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+/* BUTTONS */
+.buttons{
+  background: honeydew;
+  border-bottom: 2px solid black;
+  height: 40px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.buttons p{
+  float: left;
+  font-size: 12px;
+  line-height: 40px;
+}
+.buttons button{
+  height: 26px;
+  margin-top: 7px;
+  margin-left: 10px;
+}
+.csv-wrap{
+  float: right !important;
+}
 
 /* MAIN WRAPPER */
 .wrapper{
-  margin: 20px;
+  margin: 60px 20px;
 }
 
 
 /* TOP LEVEL DIVS */
 .list{
   float: left;
-  height: 98%;
+  height: calc(100% - 70px);
   left: 0;
-  max-height: 98%;
+  max-height: calc(100% - 70px);
   overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
   position: fixed;
   width: 25%;
 }
@@ -146,7 +180,7 @@ button{
   border: 1px solid #CCC;
   color: white;
   float: left;
-  font-size: 13px;
+  font-size: 12px;
   height: 22px;
   line-height: 22px;
   text-align: center;
@@ -191,9 +225,10 @@ button{
   background: #999;
 }
 .players td{
-  font-size: 14px;
+  font-size: 12px;
 }
 td.name{
+  font-size: 12px;
   font-weight: 600;
   text-align: left;
 }
@@ -267,12 +302,41 @@ td.gameinfo{
   width: 97.5%;
 }
 
+.player-select-add{
+  background: palegreen;
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 5px;
+}
+.player-select-add:hover{
+  background: limegreen;
+}
+
 .player-select-add-highlighted{
   margin: 10px 0;
 }
 
 .player-select-dupes{
   font-size: 10px;
+}
+
+.player-select-add-options{
+  text-align: left;
+}
+.player-select-add-options th{
+  background: #333;
+  color: white;
+  text-align: center;
+}
+.player-select-add-options th, .player-select-add-options td{
+  padding: 3px;
+  width: 50%;
+}
+.player-select-add-options input{
+  border: 1px solid #CCC;
+  padding: 3px;
+  text-align: center;
+  width: 35px;
 }
 
 /* LINEUP TABLES */

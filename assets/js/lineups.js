@@ -72,7 +72,7 @@ function printLineups(arr){
 
 		let salaryStatus = '';
 		if(salary > 50000) salaryStatus = 'neg';
-		if(salary <= 50000 && slotsFilled == 8) salaryStatus = 'pos';
+		if(salary <= 50000 && slotsFilled == gameTypes[selectedGameType].spots) salaryStatus = 'pos';
 
 		output += '<tr class="salary-status ' + salaryStatus + '"><td colspan="2">Rem: ' + (50000 - salary) + '</td><td colspan="2">' + salary + '</td></tr>'
 		output += '</table>'
@@ -147,7 +147,7 @@ function printOneLineup(lineup){
 
 	let salaryStatus = '';
 	if(salary > 50000) salaryStatus = 'neg';
-	if(salary <= 50000 && slotsFilled == 8) salaryStatus = 'pos';
+	if(salary <= 50000 && slotsFilled == gameTypes[selectedGameType].spots) salaryStatus = 'pos';
 
 	output += '<tr class="salary-status ' + salaryStatus + '"><td colspan="2">Rem: ' + (50000 - salary) + '</td><td colspan="2">' + salary + '</td></tr>'
 	output += '</table>'
@@ -219,7 +219,7 @@ function sortLineupsBySalary(direction){
 			})
 		}
 
-		let avg = (50000 - salary) / (8 - filled);
+		let avg = (50000 - salary) / (gameTypes[selectedGameType].spots - filled);
 		lineup.avg = avg;
 
 	})

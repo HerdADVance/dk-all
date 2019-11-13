@@ -23,8 +23,13 @@ function buildPlayerSelectBar(player, numLineups){
 				if(dupes > 0) output += '<p class="player-select-dupes">Player is already in ' + dupes + ' of the ' + clickedLineupRows.length + ' highlighted lineups</p>'
 			} else{
 				output += '<button class="player-select-add">Add to <span class="player-select-delta"></span> lineups</button><br/>'
-				output += 'Random: <select id="random"><option value="no">No</option><option value="yes">Yes</option></select>'
-				output += 'Start From: <input id="start-from"></input>';
+				output += '<table class="player-select-add-options">';
+					output += '<tr><th>Random</th><th>Start From</th></tr>';
+					output += '<tr>'
+						output += '<td><input id="random" type="checkbox"></td>';
+						output += '<td><input id="start-from"></input></td>';
+					output += '</tr>';
+				output += '</table>'
 			}
 			
 		output += '</td>'
