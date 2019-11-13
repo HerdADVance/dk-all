@@ -22,7 +22,7 @@ let gameTypes = {
 			['WR', 3],
 			['TE', 1],
 			['FX', 1],
-			['DEF', 1]
+			['DST', 1]
 	 	],
 	 	slates: proSlates,
 	 	needToFilterPlayers: false

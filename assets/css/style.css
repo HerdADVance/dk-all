@@ -121,18 +121,22 @@ button{
   display: block;
   width: 100%;
 }
+
+.sort-positions{
+  display: flex;
+}
+
 .sort-positions li{
   background: #FF6C00;
   border: 1px solid #FFF;
   border-bottom: none;
   color: #FFF;
-  display: inline-block;
-  float: left;
-  height: 40px;
-  line-height: 40px;
+  flex-grow: 1;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   user-select: none;
-  width: 16.6666%;
 }
 .sort-positions li.selected{
   background: #9AE200;
@@ -142,16 +146,28 @@ button{
   border: 1px solid #CCC;
   color: white;
   float: left;
-  font-size: 16px;
-  height: 36px;
-  line-height: 36px;
+  font-size: 13px;
+  height: 22px;
+  line-height: 22px;
   text-align: center;
   user-select: none;
-  width: 33.3333%;
+  width: 16.6666%;
+}
+
+.sort-games li:nth-child(odd){
+  border-right: none;
+}
+.sort-games li:nth-child(even){
+  border-left: none;
+}
+.sort-games li:nth-child(even):before{
+  content: '@';
 }
 .sort-games li:last-child{
-  border-right: 2px solid #CCC;
+  border-right: 1px solid #CCC;
 }
+
+
 .sort-games li.selected{
   background: steelblue;
 }

@@ -44,7 +44,7 @@ $('.prepare-csv').click(function(){
 })
 
 // Sort players based on game or position
-$('.sort-players li').click(function(){
+$('.list').delegate('.sort-players li', 'click', function(){
 
 	// Change highlighted selection
 	$(this).addClass('selected').siblings().removeClass('selected');
@@ -62,7 +62,7 @@ $('.sort-players li').click(function(){
 	}
 	
 
-})
+});
 
 
 // Showing player select bar when player clicked
