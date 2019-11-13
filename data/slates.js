@@ -7,6 +7,10 @@ let collegeSlates = [
 	{
 		name: "11/16 Saturday Main",
 		players: collegeMainPlayers	
+	},
+	{
+		name: "11/16 Saturday Night",
+		players: collegeNightPlayers	
 	}
 ];
 

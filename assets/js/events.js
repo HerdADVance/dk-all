@@ -8,11 +8,13 @@ $('.gametype-select button').click(function(){
 $('.slate-select').delegate("button", "click", function(){
 	$('.initial-select').fadeOut();
 	$('.overlay').fadeOut();
-	allPlayers = gameTypes[selectedGameType].slates[1].players;
-	printSortedPlayers(allPlayers);
-	createLineups(numberOfLineups);
-	printLineups(lineups);
-	printTeamNames();
+
+	let slateName = $(this).text();
+	let slate = _.find(gameTypes[selectedGameType].slates, function (f) { return f['name'] == slateName; });
+	
+	allPlayers = slate.players;
+
+	initialize();
 });
 
 
