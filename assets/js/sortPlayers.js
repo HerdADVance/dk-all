@@ -1,5 +1,21 @@
-function printSortedPlayers(arr){
-	var output = ''
+function printSortedPlayers(arr, sortType){
+
+	if(sortType){
+		if(sortType == 'sal'){
+			arr = _.orderBy(allPlayers, ['Salary'],['desc']);
+		}
+		if(sortType == 'own'){
+			arr = _.orderBy(allPlayers, ['DKOwnership'],['desc']);
+		}
+	}
+
+	let output = '<tr class="players-headers">'
+		output += '<th>Pos</th>'
+		output += '<th>Name</th>'
+		output += '<th>Team</th>'
+		output += '<th class="players-headers-sal">Sal</th>'
+		output += '<th class="players-headers-own">Own</th>'
+	output += '</tr>'
 
 	_.forEach(arr, function(value){
 		output += '<tr class="player" id="' + value.ID + '">'
@@ -7,6 +23,10 @@ function printSortedPlayers(arr){
 			output += '<td class="name">' + value.Name + '</td>'
 			output += '<td class="team">' + value.TeamAbbrev + '</td>'
 			output += '<td class="team">' + value.Salary + '</td>'
+			output += '<td class="team">'
+				if(value.DKOwnership) output += value.DKOwnership + '%'
+				else output += "---" 
+			output += '</td>'
 		output += '</tr>'
 	})
 

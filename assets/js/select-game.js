@@ -1,10 +1,34 @@
 function initialize(){
+	
+	if(hasOwnership){
+		mergeOwnership();
+		formatOwnership();
+	}
+	
 	printSortedPlayers(allPlayers);
 	createLineups(numberOfLineups);
 	printLineups(lineups);
 	printPositions();
 	sortTeams();
 	printGames();
+}
+
+function formatOwnership(){ // converting to float
+	_.forEach(allPlayers, function(p){
+
+		let formatted = false
+
+		if(p.DKOwnership) formatted = parseFloat(p.DKOwnership.slice(0, -2));
+
+		p.DKOwnership = formatted;
+
+	});
+}
+
+function mergeOwnership(){
+	var merged = _.merge(_.keyBy(allPlayers, 'ID'), _.keyBy(proMainOwnership, 'ID'));
+	merged = _.orderBy(merged, ['Salary'],['desc'])
+	allPlayers = merged;
 }
 
 function printGames(){

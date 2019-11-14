@@ -42,6 +42,11 @@ td{
 }
 button{
   cursor: pointer;
+  border: none;
+  outline: none;
+}
+button:focus{
+  outline: none;
 }
 .clickable tr:hover, .clickable li:hover{
   cursor: pointer;
@@ -140,13 +145,13 @@ button{
   overflow-x: hidden;
   overflow-y: hidden;
   position: fixed;
-  width: 25%;
+  width: 30%;
 }
 .lineups{
   background:;
   color: #FFF;
   float: right;
-  width: 75%;
+  width: 70%;
 }
 
 
@@ -180,7 +185,7 @@ button{
   border: 1px solid #CCC;
   color: white;
   float: left;
-  font-size: 12px;
+  font-size: 10px;
   height: 22px;
   line-height: 22px;
   text-align: center;
@@ -215,6 +220,15 @@ button{
 }
 
 /* PLAYERS TABLE ROWS AND CELLS */
+.players-headers th{
+  background: #666;
+  color: white;
+  font-size: 11px;
+  padding: 5px;
+}
+.players-headers:hover{
+  background: #666
+}
 .players > tr{
   background: #FFF;
 }

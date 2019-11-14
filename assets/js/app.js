@@ -1,6 +1,5 @@
 // GLOBALS
 
-let selectedGameType = false;
 let gameTypes = {
 
 	college: {
@@ -42,6 +41,9 @@ let gameTypes = {
 	 	needToFilterPlayers: true
 	}
 };
+
+selectedGameType = false;
+hasOwnership = false;
 
 allPlayers = [];
 //allPlayers = _.filter(playersData, function (f) { return f['Roster Position'] !== 'CPT'; });

@@ -14,6 +14,7 @@ $('.slate-select').delegate("button", "click", function(event){
 		let slate = _.find(gameTypes[selectedGameType].slates, function (f) { return f['name'] == slateName; });
 		
 		allPlayers = slate.players;
+		hasOwnership = slate.hasOwnership;
 
 		let chosenNumberLineups = $('#select-number-lineups').val();
 		if(chosenNumberLineups) numberOfLineups = chosenNumberLineups
@@ -21,6 +22,15 @@ $('.slate-select').delegate("button", "click", function(event){
 		initialize(numberOfLineups);
 	}
 });
+
+// SORTING PLAYERS BY COLUMN HEADER
+$('.players').delegate('.players-headers-sal', 'click', function(){
+	printSortedPlayers(allPlayers, 'sal');
+})
+$('.players').delegate('.players-headers-own', 'click', function(){
+	printSortedPlayers(allPlayers, 'own');
+})
+
 
 
 // SORTING PLAYERS BY CLICKING POSITIONS OR TEAMS
