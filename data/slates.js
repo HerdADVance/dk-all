@@ -9,12 +9,12 @@ let collegeSlates = [
 		name: "11/29 Friday",
 		players: collegeFridayPlayers,
 		hasOwnership: false
+	},
+	{
+		name: "11/30 Saturday Main",
+		players: collegeMainPlayers,
+		hasOwnership: false
 	}
-	// {
-	// 	name: "11/30 Saturday Main",
-	// 	players: collegeMainPlayers,
-	// 	hasOwnership: false
-	// }
 	// {
 	// 	name: "11/23 Saturday Late Night",
 	// 	players: collegeLateNightPlayers,
