@@ -1,17 +1,12 @@
 let collegeSlates = [
 
 	{
-		name: "11/27 Tuesday MACtion",
-		players: collegeTuesdayPlayers,
-		hasOwnership: false
-	},
-	{
-		name: "11/29 Friday",
+		name: "12/20 Friday",
 		players: collegeFridayPlayers,
 		hasOwnership: false
 	},
 	{
-		name: "11/30 Saturday Main",
+		name: "12/21 Saturday Main",
 		players: collegeMainPlayers,
 		hasOwnership: false
 	}
@@ -25,17 +20,12 @@ let collegeSlates = [
 let proSlates = [
 
 	{
-		name: "11/28 Thanksgiving Main",
-		players: proThursdayPlayers,
+		name: "12/21 Saturday Main",
+		players: proSaturdayPlayers,
 		hasOwnership: false
 	},
-	// {
-	// 	name: "12/1 Early Only",
-	// 	players: proEarlyPlayers,
-	// 	hasOwnership: false
-	// },
 	{
-		name: "12/1 Main Slate",
+		name: "12/22 Sunday Main",
 		players: proMainPlayers,
 		hasOwnership: false
 	}
