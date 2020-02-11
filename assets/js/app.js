@@ -19,16 +19,15 @@ let gameTypes = {
 	pro: {
 		roster: [
 	 		['QB', 1],
-			['RB', 2],
-			['WR', 3],
-			['TE', 1],
-			['FX', 1],
+			['RB', 1],
+			['WR', 2],
+			['FX', 2],
 			['DST', 1]
 	 	],
 	 	slates: proSlates,
-	 	spots: 9,
+	 	spots: 7,
 	 	needToFilterPlayers: false,
-	 	csvHeader: 'QB,RB,RB,WR,WR,WR,TE,FLEX,DST\n'
+	 	csvHeader: 'QB,RB,WR,WR,FLEX,FLEX,DST\n'
 
 	},
 	showdown: {

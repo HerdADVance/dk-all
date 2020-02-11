@@ -127,7 +127,7 @@ function checkQB(lineup){
 }
 
 function checkRB(lineup){
-	for (var i=0; i < 2; i++){
+	for (var i=0; i < 1; i++){
 		if(!lineup.roster['RB'][i].ID){
 			lineup.roster['RB'][i] = clickedPlayer
 			return true
@@ -135,6 +135,10 @@ function checkRB(lineup){
 	}
 	if(!lineup.roster['FX'][0].ID){
 		lineup.roster['FX'][0] = clickedPlayer
+		return true
+	}
+	if(!lineup.roster['FX'][1].ID){
+		lineup.roster['FX'][1] = clickedPlayer
 		return true
 	}
 
@@ -149,7 +153,7 @@ function checkRB(lineup){
 }
 
 function checkWR(lineup){
-	for (var i=0; i < 3; i++){
+	for (var i=0; i < 2; i++){
 		if(!lineup.roster['WR'][i].ID){
 			lineup.roster['WR'][i] = clickedPlayer
 			return true
@@ -157,6 +161,10 @@ function checkWR(lineup){
 	}
 	if(!lineup.roster['FX'][0].ID){
 		lineup.roster['FX'][0] = clickedPlayer
+		return true
+	}
+	if(!lineup.roster['FX'][1].ID){
+		lineup.roster['FX'][1] = clickedPlayer
 		return true
 	}
 

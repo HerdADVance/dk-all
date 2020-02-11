@@ -1,7 +1,7 @@
 <?php
 
 header("Content-type: text/plain");
-header("Content-Disposition: attachment; filename=dk-cfb-lineups.csv");
+header("Content-Disposition: attachment; filename=dk-xfl-lineups.csv");
 
 
 $data = $_POST['csv-data'];
