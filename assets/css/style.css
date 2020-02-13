@@ -402,14 +402,22 @@ td.gameinfo{
 
 /* INDIVIDUAL LINEUP PLAYER ROWS */
 .lineup tr td:first-child{
-  width: 25px;
+  font-weight: bold;
+  width: 28px;
+}
+.lineup tr td:nth-child(2){
+  font-weight: normal;
+  width: 35px;
 }
 .lineup tr td:last-child{
   font-size: 12px;
-  width: 40px;
+  width: 50px;
 }
 
 /* LINEUP TOTALS ROW */
+tr.salary-status td:first-child{
+  font-weight: normal;
+}
 td.lineup-total-salary{
   font-size: 14px;
   font-weight: bold;
@@ -429,3 +437,16 @@ td.lineup-total-salary{
   text-align: center;
   width: 100%;
 }
+
+
+/* XFL TEAMS */
+.team{font-weight: bold;}
+.lineup .team{font-size: 10px;}
+.DAL{background-color: lightblue; color: black !important;}
+.DC{background-color: red; color: white !important;}
+.HOU{background-color: navy; color: red !important;}
+.LA{background-color: orange; color: black !important;}
+.NY{background-color: black; color: #999 !important;}
+.SEA{background-color: green; color: orange !important;}
+.STL{background-color: royalblue; color: silver !important;}
+.TB{background-color: limegreen; color: yellow !important;}

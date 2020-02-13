@@ -59,9 +59,10 @@ function printLineups(arr){
 						if(slot.Name){
 							salary += slot.Salary
 							slotsFilled ++
+							output += '<td class="team ' + slot.TeamAbbrev + '">' + slot.TeamAbbrev + '</td>'
 							output += '<td>' + slot.Name + '</td>'
 							output += '<td>' + slot.Salary + '</td>'
-							output += '<td class="swap">SWAP</td>'
+							//output += '<td class="swap">SWAP</td>'
 						} else output += '<td></td><td></td><td></td>'
 					output += '</tr>'
 
@@ -74,7 +75,7 @@ function printLineups(arr){
 		if(salary > 50000) salaryStatus = 'neg';
 		if(salary <= 50000 && slotsFilled == gameTypes[selectedGameType].spots) salaryStatus = 'pos';
 
-		output += '<tr class="salary-status ' + salaryStatus + '"><td colspan="2">Rem: ' + (50000 - salary) + '</td><td colspan="2">' + salary + '</td></tr>'
+		output += '<tr class="salary-status ' + salaryStatus + '"><td colspan="3">Rem: ' + (50000 - salary) + '</td><td colspan="1">' + salary + '</td></tr>'
 		output += '</table>'
 
 		count ++
@@ -134,9 +135,10 @@ function printOneLineup(lineup){
 					if(slot.Name){
 						salary += slot.Salary
 						slotsFilled ++
+						output += '<td class="team ' + slot.TeamAbbrev + '">' + slot.TeamAbbrev + '</td>'
 						output += '<td>' + slot.Name + '</td>'
 						output += '<td>' + slot.Salary + '</td>'
-						output += '<td class="swap">SWAP</td>'
+						//output += '<td class="swap">SWAP</td>'
 					} else output += '<td></td><td></td><td></td>'
 				output += '</tr>'
 
@@ -149,7 +151,7 @@ function printOneLineup(lineup){
 	if(salary > 50000) salaryStatus = 'neg';
 	if(salary <= 50000 && slotsFilled == gameTypes[selectedGameType].spots) salaryStatus = 'pos';
 
-	output += '<tr class="salary-status ' + salaryStatus + '"><td colspan="2">Rem: ' + (50000 - salary) + '</td><td colspan="2">' + salary + '</td></tr>'
+	output += '<tr class="salary-status ' + salaryStatus + '"><td colspan="3">Rem: ' + (50000 - salary) + '</td><td colspan="1">' + salary + '</td></tr>'
 	output += '</table>'
 
 	$('table#' + lineup.id).html(output)

@@ -21,7 +21,7 @@ function printSortedPlayers(arr, sortType){
 		output += '<tr class="player" id="' + value.ID + '">'
 			output += '<td class="position">' + value.Position + '</td>'
 			output += '<td class="name">' + value.Name + '</td>'
-			output += '<td class="team">' + value.TeamAbbrev + '</td>'
+			output += '<td class="team ' + value.TeamAbbrev + '">' + value.TeamAbbrev + '</td>'
 			output += '<td class="team">' + value.Salary + '</td>'
 			output += '<td class="team">'
 				if(value.DKOwnership) output += value.DKOwnership + '%'
