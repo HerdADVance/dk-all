@@ -79,9 +79,9 @@ function sortTeams(){
 	_.forEach(allPlayers, function(player){
 		let game = {};
 		let info = player['Game Info'];
-		game['away'] = info.substr(0, info.indexOf('@'));
+		game['away'] = info.substr(0, info.indexOf('v')).slice(0, -1);
 
-		info = info.substring(info.indexOf("@") + 1);
+		info = info.substring(info.indexOf("s") + 2);
 		game['home'] = info.substr(0, info.indexOf(' '));
 
 		info = info.substring(info.indexOf(" ") + 1);

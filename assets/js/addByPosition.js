@@ -23,20 +23,20 @@ function addPlayer(pos, numLineups, numSkip){
 
 		let added = false
 		switch(pos){
-			case 'QB': 
-				added = checkQB(lineups[i])
+			case 'GK': 
+				added = checkGK(lineups[i])
 				break
-			case 'RB':
-				added = checkRB(lineups[i])
+			case 'D':
+				added = checkD(lineups[i])
 				break
-			case 'WR':
-				added = checkWR(lineups[i])
+			case 'M':
+				added = checkM(lineups[i])
 				break
-			case 'TE':
-				added = checkTE(lineups[i])
+			case 'F':
+				added = checkF(lineups[i])
 				break
-			case 'DST':
-				added = checkDST(lineups[i])
+			case 'M/F':
+				added = checkMF(lineups[i])
 				break
 			default:
 				console.log("ERROR")
@@ -111,93 +111,83 @@ function addPlayerToHighlightedLineups(){
 }
 
 
-function checkQB(lineup){
-	if(!lineup.roster['QB'][0].ID){
-		lineup.roster['QB'][0] = clickedPlayer
+function checkGK(lineup){
+	if(!lineup.roster['GK'][0].ID){
+		lineup.roster['GK'][0] = clickedPlayer
 		return true
-	}
-
-	if(selectedGameType == 'college'){
-		if(!lineup.roster['SF'][0].ID){
-			lineup.roster['SF'][0] = clickedPlayer
-			return true
-		}
-	}
-	return false
-}
-
-function checkRB(lineup){
-	for (var i=0; i < 1; i++){
-		if(!lineup.roster['RB'][i].ID){
-			lineup.roster['RB'][i] = clickedPlayer
-			return true
-		}
-	}
-	if(!lineup.roster['FX'][0].ID){
-		lineup.roster['FX'][0] = clickedPlayer
-		return true
-	}
-	if(!lineup.roster['FX'][1].ID){
-		lineup.roster['FX'][1] = clickedPlayer
-		return true
-	}
-
-	if(selectedGameType == 'college'){
-		if(!lineup.roster['SF'][0].ID){
-			lineup.roster['SF'][0] = clickedPlayer
-			return true
-		}
 	}
 
 	return false
 }
 
-function checkWR(lineup){
+function checkD(lineup){
 	for (var i=0; i < 2; i++){
-		if(!lineup.roster['WR'][i].ID){
-			lineup.roster['WR'][i] = clickedPlayer
+		if(!lineup.roster['D'][i].ID){
+			lineup.roster['D'][i] = clickedPlayer
 			return true
 		}
 	}
-	if(!lineup.roster['FX'][0].ID){
-		lineup.roster['FX'][0] = clickedPlayer
-		return true
-	}
-	if(!lineup.roster['FX'][1].ID){
-		lineup.roster['FX'][1] = clickedPlayer
+	if(!lineup.roster['UTIL'][0].ID){
+		lineup.roster['UTIL'][0] = clickedPlayer
 		return true
 	}
 
-	if(selectedGameType == 'college'){
-		if(!lineup.roster['SF'][0].ID){
-			lineup.roster['SF'][0] = clickedPlayer
+	return false
+}
+
+function checkM(lineup){
+	for (var i=0; i < 2; i++){
+		if(!lineup.roster['M'][i].ID){
+			lineup.roster['M'][i] = clickedPlayer
 			return true
 		}
 	}
-
-	return false
-}
-
-function checkTE(lineup){
-	if(!lineup.roster['TE'][0].ID){
-		lineup.roster['TE'][0] = clickedPlayer
-		return true
-	}
-	if(!lineup.roster['FX'][0].ID){
-		lineup.roster['FX'][0] = clickedPlayer
+	if(!lineup.roster['UTIL'][0].ID){
+		lineup.roster['UTIL'][0] = clickedPlayer
 		return true
 	}
 
 	return false
 }
 
-function checkDST(lineup){
-	if(!lineup.roster['DST'][0].ID){
-		lineup.roster['DST'][0] = clickedPlayer
+function checkF(lineup){
+	for (var i=0; i < 2; i++){
+		if(!lineup.roster['F'][i].ID){
+			lineup.roster['F'][i] = clickedPlayer
+			return true
+		}
+	}
+	if(!lineup.roster['UTIL'][0].ID){
+		lineup.roster['UTIL'][0] = clickedPlayer
 		return true
 	}
+
 	return false
 }
+
+function checkMF(lineup){
+	for (var i=0; i < 2; i++){
+		if(!lineup.roster['F'][i].ID){
+			lineup.roster['F'][i] = clickedPlayer
+			return true
+		}
+	}
+	for (var i=0; i < 2; i++){
+		if(!lineup.roster['M'][i].ID){
+			lineup.roster['M'][i] = clickedPlayer
+			return true
+		}
+	}
+	if(!lineup.roster['UTIL'][0].ID){
+		lineup.roster['UTIL'][0] = clickedPlayer
+		return true
+	}
+
+	return false
+}
+
+
+
 
 
 

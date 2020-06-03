@@ -92,9 +92,21 @@ function sortPlayersByPosition(players, pos){
 		
 		case 'ALL':
 			break
+
+		case 'F':
+			matching = players.filter(e => ['F', 'M/F'].includes(e.Position))
+			break
+
+		case 'M':
+			matching = players.filter(e => ['M', 'M/F'].includes(e.Position))
+			break
+
+		case 'M/F':
+			matching = players.filter(e => ['F', 'M', 'M/F'].includes(e.Position))
+			break
 		
-		case 'FX':
-			matching = players.filter(e => ['RB', 'WR', 'TE'].includes(e.Position))
+		case 'UTIL':
+			matching = players.filter(e => ['F', 'M', 'M/F', 'D'].includes(e.Position))
 			break
 		
 		default:

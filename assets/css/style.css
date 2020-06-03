@@ -199,7 +199,7 @@ button:focus{
 .sort-games li:nth-child(even){
   border-left: none;
 }
-.sort-games li:nth-child(even):before{
+.sort-games li:nth-child(odd):before{
   content: '@';
 }
 .sort-games li:last-child{
@@ -450,3 +450,15 @@ td.lineup-total-salary{
 .SEA{background-color: green; color: orange !important;}
 .STL{background-color: royalblue; color: silver !important;}
 .TB{background-color: limegreen; color: yellow !important;}
+
+/* BUNDESLIGA TEAMS */
+.WOB{background-color: #58bf1d; color: white !important;}
+.SGE{background-color: black; color: red !important;}
+.FCA{background-color: darkred; color: lightgreen !important;}
+.BSC{background-color: #222; color: dodgerblue !important;}
+.TSG{background-color: blue; color: white !important;}
+.M05{background-color: crimson; color: white !important;}
+.SVW{background-color: darkgreen; color: white !important;}
+.S04{background-color: #CCC; color: blue !important;}
+.BVB{background-color: yellow; color: black !important;}
+.BAY{background-color: red; color: blue !important;}
