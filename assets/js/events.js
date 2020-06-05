@@ -232,6 +232,13 @@ $('.sort-id').click(function(){
 });
 
 
+// SWITCHING TO EXPOSURES
+$('.show-exposures').click(function(){
+	$('.optimizer').hide()
+	$('.exposures').show()
+})
+
+
 // SAVING IMPORT FILE
 $('.prepare-csv').click(function(){
 

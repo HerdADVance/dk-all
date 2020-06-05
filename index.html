@@ -12,60 +12,75 @@
 <body>
 
 	<div class="overlay"></div>
-	<div class="initial-select gametype-select">
-		<h1>Select Gametype</h1>
-		<button class="gametype-select-button" data-gametype="soccer">Soccer</button>
-	</div>
-	<div class="initial-select slate-select">
-		<h1>Select Slate</h1>
-	</div>
 
-	<div class="buttons">
-		<p><span>Sort by:</span> 
+	<div class="optimizer">
 
-		<!--button class="show-over-cap">Show Over Cap</button>
-		<button class="show-all">Show All</button-->
+		<div class="initial-select gametype-select">
+			<h1>Select Gametype</h1>
+			<button class="gametype-select-button" data-gametype="soccer">Soccer</button>
+		</div>
+		<div class="initial-select slate-select">
+			<h1>Select Slate</h1>
+		</div>
 
-		<button class="sort-high">Most Avg Rem. Salary</button>
-		<button class="sort-low">Least Avg Rem. Salary</button>
-		<button class="sort-id">Original</button>
+		<div class="buttons">
+			<p><span>Sort by:</span> 
 
-		</p>
+			<!--button class="show-over-cap">Show Over Cap</button>
+			<button class="show-all">Show All</button-->
 
-		<p class="csv-wrap"><button class="prepare-csv">Create Import File</button></p>
-		<form style="display: none;" id="create-csv" name="create-csv" action="create-csv.php" method="post"> 
-			<input type="hidden" id="csv-data" name="csv-data">
-		</form>
-	</div>
+			<button class="sort-high">Most Avg Rem. Salary</button>
+			<button class="sort-low">Least Avg Rem. Salary</button>
+			<button class="sort-id">Original</button>
+			<button class="show-exposures">Exposures</button>
+
+			</p>
+
+			<p class="csv-wrap"><button class="prepare-csv">Create Import File</button></p>
+			<form style="display: none;" id="create-csv" name="create-csv" action="create-csv.php" method="post"> 
+				<input type="hidden" id="csv-data" name="csv-data">
+			</form>
+		</div>
 
 
-	<div class="wrapper">
+		<div class="wrapper">
 
-		<div class="list">
+			<div class="list">
+				
+				<div>
+					<ul class="sort-players sort-positions clickable"></ul>
+				</div>
+
+				<div>
+					<ul class="sort-players sort-games clickable"></ul>
+				</div>
+
+				<div class="players-wrap">
+					<table class="players clickable"></table>
+				</div>
+
+			</div>
+
 			
-			<div>
-				<ul class="sort-players sort-positions clickable"></ul>
+			<div class="lineups">
+				<div class="lineups-wrap"></div>
 			</div>
 
-			<div>
-				<ul class="sort-players sort-games clickable"></ul>
-			</div>
-
-			<div class="players-wrap">
-				<table class="players clickable"></table>
-			</div>
-
-		</div>
-
-		
-		<div class="lineups">
-			<div class="lineups-wrap"></div>
 		</div>
 
 	</div>
+
+
+
+	<div class="exposures">
+		<h1>Exposures</h1>
+		<table class="exposures-table">
+		</table>
+	</div>
+
+
 
 	<div class="latest-update"></div>
-
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script> 
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"></script>
@@ -85,6 +100,7 @@
 	<script src="/data/pro-main-players.js"></script>
 	<script src="/data/pro-main-ownership.js"></script>
 	<script src="/data/slates.js"></script>
+	<script src="/assets/js/exposures.js"></script>
 	<script src="/assets/js/events.js"></script>
 	<script src="/assets/js/select-game.js"></script>
 	<script src="/assets/js/sortPlayers.js"></script>

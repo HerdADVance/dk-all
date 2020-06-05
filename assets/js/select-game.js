@@ -11,6 +11,7 @@ function initialize(){
 	printPositions();
 	sortTeams();
 	printGames();
+	createExposuresTable();
 }
 
 function formatOwnership(){ // converting to float
